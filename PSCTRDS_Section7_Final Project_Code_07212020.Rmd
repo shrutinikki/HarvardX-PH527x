@@ -1,0 +1,35 @@
+---
+title: "Final Project"
+author: "Shruti Gupta"
+date: "July 21, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document for the final project for the course of Principles, Statistical and Computational Tools for Reproducible Data Science. This Markdown looks at the attemped to reproduce the output from the paper of Relation between Optimism and Lipids in Midlife by Boehm, J. K., Williams, D. R., Rimm, E. B., Ryff, C., & Kubzansky, L. D.
+```{r}
+load("C:/Users/HP/Documents/Courses/edx/Principles, Statistical and Computational Tools for Reproducible Data Science/Section 7/ICPSR_04652-V7/ICPSR_04652/DS0001/04652-0001-Data.rda")
+load("C:/Users/HP/Documents/Courses/edx/Principles, Statistical and Computational Tools for Reproducible Data Science/Section 7/ICPSR_04652-V7/ICPSR_04652/DS0002/04652-0002-Data.rda")
+load("C:/Users/HP/Documents/Courses/edx/Principles, Statistical and Computational Tools for Reproducible Data Science/Section 7/ICPSR_04652-V7/ICPSR_04652/DS0003/04652-0003-Data.rda")
+load("C:/Users/HP/Documents/Courses/edx/Principles, Statistical and Computational Tools for Reproducible Data Science/Section 7/ICPSR_04652-V7/ICPSR_04652/DS0004/04652-0004-Data.rda")
+```
+
+## Display inital values
+
+```{r}
+head(da04652.0001)
+head(da04652.0002)
+head(da04652.0003)
+head(da04652.0004)
+```
+
+```{r}
+library(tidyr)
+da04652.0001%>%group_by("B1SOPTIM")%>%summarize(mean("B1PAGE_M2", na.rm = TRUE))
+```
+
